@@ -1,0 +1,527 @@
+[{
+    "swagger": "2.0",
+    "info": {
+        "filePath": "./apis",
+        "fileName": "swagger1.js",
+        "description": "面向user级别的所有接口说明",
+        "title": "(Contact)通讯录项目接口文档",
+        "contact": {
+            "name": "李强(143882)",
+            "email": "liqiang1@syswin.com"
+        },
+        "license": {}
+    },
+    "host": "124.251.88.201:8117",
+    "basePath": "/",
+    "tags": [{
+            "name": "User Category",
+            "description": "Contact Controller"
+        },
+        {
+            "name": "Switch Category",
+            "description": "Switch Controller"
+        }
+    ],
+    "dependencies": {
+        "../example/request": "request"
+    },
+    "schemes": "http",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user/acceptContactFriendRequest": {
+            "post": {
+                "tags": [
+                    "User Category"
+                ],
+                "handler": "request",
+                "summary": "手机通讯录接受好友",
+                "description": "</br>状态码: </br><font color=\"red\">107000</font>: 参数不正确</br><font color=\"red\">107003</font>: 服务异常</br><font color=\"red\">107004</font>: 操作失败</br><font color=\"red\">107008</font>: 已经是好友</br>",
+                "operationId": "acceptContactFriendRequestUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "X-Toon-User-ID",
+                        "in": "header",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Token",
+                        "in": "header",
+                        "description": "User Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Agent",
+                        "in": "header",
+                        "description": "User Agent",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "form",
+                        "description": "form",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TNPAcceptContactFriendInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "User Category"
+                ],
+                "handler": "request",
+                "summary": "手机通讯录接受好友",
+                "description": "</br>状态码: </br><font color=\"red\">107000</font>: 参数不正确</br><font color=\"red\">107003</font>: 服务异常</br><font color=\"red\">107004</font>: 操作失败</br><font color=\"red\">107008</font>: 已经是好友</br>",
+                "operationId": "acceptContactFriendRequestUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "X-Toon-User-ID",
+                        "in": "header",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Token",
+                        "in": "header",
+                        "description": "User Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Agent",
+                        "in": "header",
+                        "description": "User Agent",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "form",
+                        "description": "form",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TNPAcceptContactFriendInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/user/acceptFriendRequest": {
+            "post": {
+                "tags": [
+                    "User Category"
+                ],
+                "handler": "request",
+                "summary": "通讯录申请模式接受好友",
+                "description": "</br>状态码: </br><font color=\"red\">107000</font>: 参数不正确</br><font color=\"red\">107003</font>: 服务异常</br><font color=\"red\">107004</font>: 操作失败</br><font color=\"red\">107008</font>: 已经是好友</br>",
+                "operationId": "acceptFriendRequestUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "X-Toon-User-ID",
+                        "in": "header",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Token",
+                        "in": "header",
+                        "description": "User Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Agent",
+                        "in": "header",
+                        "description": "User Agent",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "form",
+                        "description": "form",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TNPAcceptFriendInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "TNPAcceptContactFriendInput": {
+            "type": "object",
+            "required": [
+                "feedId",
+                "friendFeedId",
+                "friendTitle",
+                "friendUserId",
+                "mobilePhone",
+                "title"
+            ],
+            "properties": {
+                "feedId": {
+                    "type": "string",
+                    "description": "自己feedId"
+                },
+                "friendFeedId": {
+                    "type": "string",
+                    "description": "好友feedId"
+                },
+                "friendTitle": {
+                    "type": "string",
+                    "description": "好友名片名称"
+                },
+                "friendUserId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "好友userId"
+                },
+                "mobilePhone": {
+                    "type": "string",
+                    "description": "申请方的手机通讯录里手机号码（即通知收到的手机号码）"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "自己名称名称"
+                }
+            }
+        },
+        "TNPAcceptFriendInput": {
+            "type": "object",
+            "required": [
+                "feedId",
+                "friendFeedId",
+                "friendTitle",
+                "friendUserId",
+                "title"
+            ],
+            "properties": {
+                "feedId": {
+                    "type": "string",
+                    "description": "自己feedId"
+                },
+                "friendFeedId": {
+                    "type": "string",
+                    "description": "好友feedId"
+                },
+                "friendTitle": {
+                    "type": "string",
+                    "description": "好友名片昵称"
+                },
+                "friendUserId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "好友的userId"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "自己名片昵称"
+                }
+            }
+        }
+    }
+}, {
+    "swagger": "2.0",
+    "info": {
+        "filePath": "./apis",
+        "fileName": "swagger2.js",
+        "description": "面向user级别的所有接口说明",
+        "title": "(Contact)通讯录项目接口文档",
+        "contact": {
+            "name": "李强(143882)",
+            "email": "liqiang1@syswin.com"
+        },
+        "license": {}
+    },
+    "host": "124.251.88.201:8117",
+    "basePath": "/",
+    "tags": [{
+            "name": "User Category",
+            "description": "Contact Controller"
+        },
+        {
+            "name": "Switch Category",
+            "description": "Switch Controller"
+        }
+    ],
+    "dependencies": {
+        "../example/request": "request"
+    },
+    "schemes": "http",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user/acceptContactFriendRequest": {
+            "post": {
+                "tags": [
+                    "User Category"
+                ],
+                "handler": "request",
+                "summary": "手机通讯录接受好友",
+                "description": "</br>状态码: </br><font color=\"red\">107000</font>: 参数不正确</br><font color=\"red\">107003</font>: 服务异常</br><font color=\"red\">107004</font>: 操作失败</br><font color=\"red\">107008</font>: 已经是好友</br>",
+                "operationId": "acceptContactFriendRequestUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "X-Toon-User-ID",
+                        "in": "header",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Token",
+                        "in": "header",
+                        "description": "User Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Agent",
+                        "in": "header",
+                        "description": "User Agent",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "form",
+                        "description": "form",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TNPAcceptContactFriendInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "User Category"
+                ],
+                "handler": "request",
+                "summary": "手机通讯录接受好友",
+                "description": "</br>状态码: </br><font color=\"red\">107000</font>: 参数不正确</br><font color=\"red\">107003</font>: 服务异常</br><font color=\"red\">107004</font>: 操作失败</br><font color=\"red\">107008</font>: 已经是好友</br>",
+                "operationId": "acceptContactFriendRequestUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "X-Toon-User-ID",
+                        "in": "header",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Token",
+                        "in": "header",
+                        "description": "User Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Agent",
+                        "in": "header",
+                        "description": "User Agent",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "form",
+                        "description": "form",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TNPAcceptContactFriendInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/user/acceptFriendRequest": {
+            "post": {
+                "tags": [
+                    "User Category"
+                ],
+                "handler": "request",
+                "summary": "通讯录申请模式接受好友",
+                "description": "</br>状态码: </br><font color=\"red\">107000</font>: 参数不正确</br><font color=\"red\">107003</font>: 服务异常</br><font color=\"red\">107004</font>: 操作失败</br><font color=\"red\">107008</font>: 已经是好友</br>",
+                "operationId": "acceptFriendRequestUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "X-Toon-User-ID",
+                        "in": "header",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Token",
+                        "in": "header",
+                        "description": "User Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-Toon-User-Agent",
+                        "in": "header",
+                        "description": "User Agent",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "form",
+                        "description": "form",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TNPAcceptFriendInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "TNPAcceptContactFriendInput": {
+            "type": "object",
+            "required": [
+                "feedId",
+                "friendFeedId",
+                "friendTitle",
+                "friendUserId",
+                "mobilePhone",
+                "title"
+            ],
+            "properties": {
+                "feedId": {
+                    "type": "string",
+                    "description": "自己feedId"
+                },
+                "friendFeedId": {
+                    "type": "string",
+                    "description": "好友feedId"
+                },
+                "friendTitle": {
+                    "type": "string",
+                    "description": "好友名片名称"
+                },
+                "friendUserId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "好友userId"
+                },
+                "mobilePhone": {
+                    "type": "string",
+                    "description": "申请方的手机通讯录里手机号码（即通知收到的手机号码）"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "自己名称名称"
+                }
+            }
+        },
+        "TNPAcceptFriendInput": {
+            "type": "object",
+            "required": [
+                "feedId",
+                "friendFeedId",
+                "friendTitle",
+                "friendUserId",
+                "title"
+            ],
+            "properties": {
+                "feedId": {
+                    "type": "string",
+                    "description": "自己feedId"
+                },
+                "friendFeedId": {
+                    "type": "string",
+                    "description": "好友feedId"
+                },
+                "friendTitle": {
+                    "type": "string",
+                    "description": "好友名片昵称"
+                },
+                "friendUserId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "好友的userId"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "自己名片昵称"
+                }
+            }
+        }
+    }
+}]

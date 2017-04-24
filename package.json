@@ -1,0 +1,35 @@
+{
+  "name": "doc2api",
+  "version": "1.0.0",
+  "description": "document to js request api function",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node_modules/.bin/babel src -d dist",
+    "prepublish": "npm run compile",
+    "test": "npm run compile && ./node_modules/.bin/babel-node ./example/index.js"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2046/doc2api.git"
+  },
+  "author": "2046",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2046/doc2api/issues"
+  },
+  "homepage": "https://github.com/2046/doc2api#readme",
+  "dependencies": {
+    "ast2": "^1.0.0",
+    "js-yaml": "^3.8.3",
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1"
+  }
+}

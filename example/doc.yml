@@ -1,0 +1,82 @@
+- info:
+    filePath: ./apis
+    fileName: yaml1.js
+    comments: 
+      - @description test接口
+      - @author 2046
+      - @email g@ggg.gd
+    deps:
+      - local: request
+        source: ../example/request
+  data:
+    - url: /user/acceptContactFriendRequest
+      name: acceptContactFriendRequest1
+      method: POST
+      handler: request
+      comments:
+        - 手机通讯录接受好友
+      parameters:
+        - name: X-Toon-User-ID
+          value: abc
+          in: header
+        - name: X-Toon-User-Token
+          value: 1234
+          in: header
+        - name: X-Toon-User-Token
+          value:
+            - a
+            - b
+          in: header
+        - name: X-Toon-User-Token
+          value:
+            a: b
+            c: c
+          in: header
+        - name: form
+          value: abc
+          in: body
+    - url: /user/acceptContactFriendRequest
+      name: acceptContactFriendRequest2
+      method: POST
+      handler: request
+- info:
+    filePath: ./apis/
+    fileName: yaml2.js
+    comments: 
+      - @description test接口
+      - @author 2046
+      - @email g@ggg.gd
+    deps:
+      - local: request
+        source: ../example/request
+  data:
+    - url: /user/acceptContactFriendRequest
+      name: acceptContactFriendRequest1
+      method: POST
+      handler: request
+      comments:
+        - 手机通讯录接受好友
+      parameters:
+        - name: X-Toon-User-ID
+          value: abc
+          in: header
+        - name: X-Toon-User-Token
+          value: 1234
+          in: header
+        - name: X-Toon-User-Token
+          value:
+            - a
+            - b
+          in: header
+        - name: X-Toon-User-Token
+          value:
+            a: b
+            c: c
+          in: header
+        - name: form
+          value: abc
+          in: body
+    - url: /user/acceptContactFriendRequest
+      name: acceptContactFriendRequest2
+      method: POST
+      handler: request
