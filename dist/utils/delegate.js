@@ -32,6 +32,19 @@ var _ast2 = _interopRequireDefault(_ast);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function type(value) {
+    if (isString(value) && ~value.indexOf('.')) {
+        let keys, expression;
+
+        keys = value.split('.');
+        expression = _ast2.default.expressions.member(_ast2.default.identifier(keys[0]), _ast2.default.identifier(keys[1]));
+
+        for (let key of keys.slice(2)) {
+            expression = _ast2.default.expressions.member(expression, _ast2.default.identifier(key));
+        }
+
+        return expression;
+    }
+
     if (isArray(value)) {
         return _ast2.default.expressions.array(value.map(item => type(item)));
     } else if (isObject(value)) {
