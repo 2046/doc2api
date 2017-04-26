@@ -22,6 +22,19 @@ export default function(node) {
 }
 
 function type(value) {
+    if (isString(value) && ~value.indexOf('.')) {
+        let keys, expression
+
+        keys = value.split('.')
+        expression = ast.expressions.member(ast.identifier(keys[0]), ast.identifier(keys[1]))
+
+        for (let key of keys.slice(2)) {
+            expression = ast.expressions.member(expression, ast.identifier(key))
+        }
+
+        return expression
+    }
+    
     if (isArray(value)) {
         return ast.expressions.array(value.map((item) => type(item)))
     } else if (isObject(value)) {
