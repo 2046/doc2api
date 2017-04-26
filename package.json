@@ -1,8 +1,8 @@
 {
   "name": "doc2api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "document to js request api function",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "compile": "node_modules/.bin/babel src -d dist",
     "prepublish": "npm run compile",

@@ -106,7 +106,6 @@ function property(node, header) {
         propertys.push(ast.property(ast.identifier('headers'), ast.expressions.object(header)))
     }
 
-
     return [
         ast.expressions.call(ast.expressions.member(ast.identifier('Object'), ast.identifier('assign')), [
             ast.expressions.object(),
