@@ -50,6 +50,10 @@ function isArray(val) {
     return Array.isArray(val)
 }
 
+function isString(val) {
+    return typeof val === 'string'
+}
+
 function isObject(val) {
     return typeof val === 'object' && !isArray(val)
 }
